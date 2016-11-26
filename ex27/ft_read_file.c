@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_read_file.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtaieb <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/10 22:42:38 by mtaieb            #+#    #+#             */
-/*   Updated: 2016/11/26 17:23:17 by mtaieb           ###   ########.fr       */
+/*   Created: 2016/09/14 21:55:52 by mtaieb            #+#    #+#             */
+/*   Updated: 2016/09/15 17:08:28 by mtaieb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include "ft_prot.h"
 
-void	ft_print_numbers(void)
+#define BUF_SIZE 4096
+
+void	ft_read_file(char *name)
 {
-	char c;
+	int		fd;
+	int		ret;
+	char	buf[BUF_SIZE + 1];
 
-	c = '0';
-	while (c <= '9')
+	fd = open(name, O_RDONLY);
+	if (fd != -1)
 	{
-		ft_putchar(c);
-		c++;
+		while ((ret = read(fd, buf, BUF_SIZE)))
+		{
+			buf[ret] = '\0';
+			ft_putstr(buf);
+		}
+	}
+	if (close(fd) == -1)
+	{
+		ft_putstr("error when close");
 	}
 }

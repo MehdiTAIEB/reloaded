@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_check_param_num.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtaieb <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/10 22:42:38 by mtaieb            #+#    #+#             */
-/*   Updated: 2016/11/26 17:23:17 by mtaieb           ###   ########.fr       */
+/*   Created: 2016/09/14 21:38:55 by mtaieb            #+#    #+#             */
+/*   Updated: 2016/09/14 21:55:24 by mtaieb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include <unistd.h>
 
-void	ft_print_numbers(void)
+int		ft_check_param_num(int argc)
 {
-	char c;
-
-	c = '0';
-	while (c <= '9')
+	if (argc < 2)
 	{
-		ft_putchar(c);
-		c++;
+		write(2, "File name missing.\n", 19);
+		return (0);
 	}
+	else if (argc > 2)
+	{
+		write(2, "Too many arguments.\n", 20);
+		return (0);
+	}
+	return (1);
 }

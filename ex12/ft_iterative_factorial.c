@@ -5,21 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtaieb <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/11 17:09:33 by mtaieb            #+#    #+#             */
-/*   Updated: 2016/11/11 17:47:12 by mtaieb           ###   ########.fr       */
+/*   Created: 2016/09/02 14:41:12 by mtaieb            #+#    #+#             */
+/*   Updated: 2016/11/26 17:34:24 by mtaieb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 int		ft_iterative_factorial(int nb)
 {
-	int res;
+	int cp;
 
-	res = 1;
-	while (nb > 1)
+	cp = nb;
+	if (nb > 1)
 	{
-		res *= nb; 
-		nb--;
+		while (--nb >= 1)
+		{
+			cp = cp * (nb);
+		}
+		return (cp);
 	}
-	return (res);
+	else if (nb == 1 || nb == 0)
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }

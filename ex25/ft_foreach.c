@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtaieb <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/10 22:42:38 by mtaieb            #+#    #+#             */
-/*   Updated: 2016/11/26 17:23:17 by mtaieb           ###   ########.fr       */
+/*   Created: 2016/09/12 12:23:07 by mtaieb            #+#    #+#             */
+/*   Updated: 2016/09/12 22:14:51 by mtaieb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-
-void	ft_print_numbers(void)
+void	ft_foreach(int *tab, int length, void (*f)(int))
 {
-	char c;
+	int i;
 
-	c = '0';
-	while (c <= '9')
+	i = 0;
+	while (i < length)
 	{
-		ft_putchar(c);
-		c++;
+		f(tab[i]);
+		i++;
 	}
 }

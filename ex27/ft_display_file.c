@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_display_file.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtaieb <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/10 22:42:38 by mtaieb            #+#    #+#             */
-/*   Updated: 2016/11/26 17:23:17 by mtaieb           ###   ########.fr       */
+/*   Created: 2016/09/14 21:35:23 by mtaieb            #+#    #+#             */
+/*   Updated: 2016/09/15 14:55:08 by mtaieb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include "ft_prot.h"
 
-void	ft_print_numbers(void)
+int		main(int argc, char **argv)
 {
-	char c;
-
-	c = '0';
-	while (c <= '9')
+	if (ft_check_param_num(argc))
 	{
-		ft_putchar(c);
-		c++;
+		ft_read_file(argv[1]);
 	}
+	return (0);
 }
